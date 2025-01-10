@@ -1,0 +1,148 @@
+\documentclass[svgnames, table, 10pt, aspectratio=169]{beamer} % aspectratio=1610, 149, 54, 43 et 32.]{beamer}
+\usepackage{ae,lmodern}
+\usepackage[english]{babel}  % package pour langue française
+\usepackage[utf8]{inputenc} % compilation des mots accentués
+\usepackage[T1]{fontenc}      % césure correcte des mots accentués 
+\usepackage{eso-pic,rotating,graphicx} % insertion d'images et manipulation de la position
+\usepackage{xcolor}
+\usepackage[font=small]{caption}
+\usepackage{subcaption} % utilisation d'une légende intermédiaire dans le cas d'une image multiple
+\usepackage{url} % utilisation des liens url (utilisation dans le cas de la bibliographie par exemple
+\usepackage{tcolorbox,listings} % coloration du texte et possibilité d'inclure blocs de codes
+\usepackage{geometry} % customisation des layouts de page (marges, bordures, espacements)
+\usepackage{amssymb} % caractères mathématiques
+\usepackage{multirow, makecell} % tableau sur plusieurs colonnes fusionnées
+\usepackage{bibentry}
+\usepackage[backend=biber,style=numeric-comp, sorting=none, natbib=true]{biblatex} % exemples styles : https://fr.overleaf.com/learn/latex/Biblatex_bibliography_styles (mla pas mal)
+\usepackage{comment} % utilisation des commentaires de blocs
+\setcounter{tocdepth}{2} % profondeur du sommaire (2 = sections, sous sections)
+\setcounter{secnumdepth}{1} % profondeur de la numérotation (1 : sections)
+\usepackage{ragged2e} % justification du texte dans les itemizes
+\usepackage{tikz} % création de schémas directement dans les slides
+\usepackage{csquotes} % pour enlever un warning avec biblatex
+\usepackage{fontawesome} %emoji
+\usepackage{marvosym}
+\usepackage[normalem]{ulem}
+\usepackage{booktabs}
+\usepackage{nth}
+\usepackage{siunitx}
+\usetikzlibrary{decorations.pathreplacing} % Load the required library
+
+\usetheme[secheader]{William}
+\input{listings.tex}
+
+% ---------------------------------------------------------------- %
+\title{\textsc{Titre}}
+\subtitle{\textsc{Subtitle}}
+\newcommand{\manualshortsubtitle}{Beamer presentation example - Saint-\'Etienne}
+\author[
+    Authors
+]{
+    \textbf{Authors}
+}
+\institute[Short Institution] % (optional)
+{
+    {\small Long Institution} \\ \vspace{2mm}
+}
+\date{\today}
+
+% Multiple logos
+\titlegraphic{
+    % \includegraphics[height=1cm]{img/logo/ubs.png}
+    % \hspace{1cm}
+    % \includegraphics[height=1cm]{img/logo/labsticc.pdf}
+    % \hspace{1cm}
+    \includegraphics[height=1cm]{img/logo/cnrs.pdf}
+}
+% ---------------------------------------------------------------- %
+
+
+\begin{document}
+% ---------------------------------------------------------------- %
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+% ---------------------------------------------------------------- %
+\begin{frame}{Outline}
+	\begin{columns}
+		\begin{column}{.15\linewidth}
+			\hfill
+		\end{column}
+		\begin{column}{.8\linewidth}
+			\Large\tableofcontents[hideallsubsections]
+		\end{column}
+		\begin{column}{.1\linewidth}
+			\hfill
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\section{Blocks types}
+\begin{frame}{Blocks}
+    \begin{block}{Block}
+        \begin{itemize}
+            \setbeamertemplate{itemize items}[triangle]
+            \item Item 1
+            \item Item 2
+        \end{itemize}
+    \end{block}
+
+    \begin{exampleblock}{ExampleBlock}
+        \begin{itemize}
+            \setbeamertemplate{itemize items}[square]
+            \item Item 1
+            \item Item 2
+        \end{itemize}
+    \end{exampleblock}
+
+    \begin{alertblock}{AlertBlock}
+        \begin{itemize}
+            \setbeamertemplate{itemize items}[sphere]
+            \item Item 1
+            \item Item 2
+        \end{itemize}
+    \end{alertblock}
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\section{Section 2}
+\subsection{Subsection 1}
+\begin{frame}{Section 2 -- Subsection 1}
+    \begin{theorem}
+        Theorem 1
+    \end{theorem}
+
+    \begin{proof}
+        Proof 1
+    \end{proof}
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\subsection{Subsection 2}
+\begin{frame}{Section 2 -- Subsection 2}
+
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\section{Section 3}
+\begin{frame}[fragile]{Section 3}
+\centering
+\begin{minipage}[c]{\textwidth}
+    \begin{lstlisting}[language=C,label=code:printfNFormat]
+void echo(){
+int a;
+register int i asm("x8");
+a = i;
+printf("%224u%n%35u%n%253u%n%n", 1, (int*) (a-4), 1, (int*) (a-3), 1, (int*) (a-2), (int*) (a-1));
+}\end{lstlisting}
+\end{minipage}
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\begin{frame}{}
+    \backpage
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\end{document}
