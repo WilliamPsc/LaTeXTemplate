@@ -36,13 +36,14 @@
 \subtitle{\textsc{Subtitle}}
 \newcommand{\manualshortsubtitle}{Beamer presentation example - Saint-\'Etienne}
 \author[
-    William PENSEC
+    William \textsc{Pensec}
 ]{
-    \textbf{William PENSEC}
+    \textbf{William \textsc{Pensec}}
 }
+\supervisor{Vincent Grosso, Brice Colombier, Cédric Killian}
 \institute[UJM, UMR 5516 LabHC] % (optional)
 {
-    {\small Université Jean Monnet, UMR 5516 Laboratoire Hubert Curien} \\ \vspace{2mm}
+    {\small Université Jean Monnet,\\ UMR 5516 Laboratoire Hubert Curien} \\ \vspace{2mm}
 }
 \date{\today}
 
@@ -58,6 +59,7 @@
 
 
 \begin{document}
+\setbeamercovered{transparent} % Display all futur text but greysed
 % ---------------------------------------------------------------- %
 \begin{frame}[plain]
 	\titlepage
@@ -69,7 +71,7 @@
 			\hfill
 		\end{column}
 		\begin{column}{.8\linewidth}
-			\Large\tableofcontents[hideallsubsections]
+			\Large\tableofcontents
 		\end{column}
 		\begin{column}{.1\linewidth}
 			\hfill
@@ -84,7 +86,8 @@
         \begin{itemize}
             \setbeamertemplate{itemize items}[triangle]
             \item Item 1
-            \item Item 2
+            \item<1> Item 2
+            \item<2> Item 3
         \end{itemize}
     \end{block}
 
@@ -124,8 +127,27 @@
 %
 % ---------------------------------------------------------------- %
 \subsection{Subsection 2}
-\begin{frame}{Section 2 -- Subsection 2}
+\begin{frame}{Mathematical boxes -- Subsection 2}
+    \begin{figure}
+        \centering
+        \includegraphics[height=.7\textheight]{img/neural_network.pdf}
+        \caption{Schéma d'un MLP}
+        \label{fig:mlp}
+    \end{figure}
+\end{frame}
 
+\begin{frame}{Mathematical boxes -- Subsection 2}
+    \begin{itemize}
+        \item toto
+        \item transparent
+        \item titi
+    \end{itemize}
+
+    \begin{enumerate}
+        \item One
+        \item two
+        \item three
+    \end{enumerate}
 \end{frame}
 %
 % ---------------------------------------------------------------- %
@@ -144,9 +166,9 @@ printf("%224u%n%35u%n%253u%n%n", 1, (int*) (a-4), 1, (int*) (a-3), 1, (int*) (a-
 \end{frame}
 %
 % ---------------------------------------------------------------- %
-% \begin{frame}{}
-%     \backpage
-% \end{frame}
+\begin{frame}{}
+    \backpage
+\end{frame}
 %
 % ---------------------------------------------------------------- %
 \end{document}

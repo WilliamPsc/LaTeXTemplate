@@ -12,28 +12,29 @@
 
 
 % Define all color used
-\definecolor[named]{LightGray}{RGB}{230,230,230}
-\definecolor{bleuLabSTICC}{RGB}{0,54,95}
-\definecolor{labHC}{RGB}{234,96,18}
-\setbeamercolor{footlinecolor}{fg=bleuLabSTICC, bg=black}
-% \colorlet{beamer@blendedblue}{bleuLabSTICC}
+\definecolor{LightGray}{RGB}{230,230,230}
+\definecolor{blueBlock}{RGB}{0,49,99}
+\definecolor{writingColor}{RGB}{0,54,95}
+\definecolor{backGroundColor}{RGB}{234,96,18}
+\setbeamercolor{footlinecolor}{fg=writingColor, bg=black}
+% \colorlet{beamer@blendedblue}{writingColor}
 
 % Associate each color to their part of the slide
 % Title and Frame Elements
-\setbeamercolor{title}{bg=labHC, fg=bleuLabSTICC} % Color of the presentation title.
-\setbeamercolor{author}{bg=black, fg=black} % Color of the author's name.
-\setbeamercolor{date}{bg=black, fg=black} % Color of the date.
+\setbeamercolor{title}{bg=backGroundColor, fg=writingColor} % Color of the presentation title.
+\setbeamercolor{author}{bg=white, fg=black} % Color of the author's name.
+\setbeamercolor{institute}{bg=white, fg=black} % Color of the institue.
+\setbeamercolor{date}{bg=white, fg=black} % Color of the date.
 \setbeamercolor{frametitle}{bg=black, fg=black} % Color of the frame title.
 \setbeamercolor{framesubtitle}{bg=black, fg=black} % Color of the frame subtitle.
-\setbeamercolor{headline}{bg=black, fg=black} % Color of the headline (usually the navigation bar at the top).
-\setbeamercolor{footline}{bg=Yellow, fg=black} % Color of the footline (usually the navigation bar at the bottom).
+\setbeamercolor{headline}{bg=backGroundColor!10, fg=writingColor!75} % Color of the headline (usually the navigation bar at the top).
+\setbeamercolor{footline}{bg=white, fg=writingColor} % Color of the footline (usually the navigation bar at the bottom).
 \setbeamercolor{sidebar}{bg=black, fg=black} % Color of the sidebar.
 \setbeamercolor{sidebarright}{bg=black, fg=black} % Color of the right sidebar.
-\setbeamercolor{institute}{bg=black, fg=black} % Color of the institue.
 \setbeamercolor{section}{bg=black, fg=black} % Color of the section.
-\setbeamercolor{section in toc}{bg=black, fg=black} % Color of the section.
-\setbeamercolor{subsection}{bg=black, fg=black} % Color of the subsection.
-\setbeamercolor{subsubsection}{bg=black, fg=black} % Color of the subsubsection.
+\setbeamercolor{section in toc}{bg=white, fg=blueBlock} % Color of the section.
+\setbeamercolor{subsection}{bg=white, fg=blueBlock} % Color of the subsection.
+\setbeamercolor{subsubsection}{bg=white, fg=blueBlock} % Color of the subsubsection.
 
 % Text Elements
 \setbeamercolor{normal text}{bg=black, fg=black} % Color of the normal text.
@@ -42,14 +43,14 @@
 \setbeamercolor{structure}{bg=black, fg=black} % Color of structural elements (e.g., section and subsection titles).
 
 % Blocks and Environments
-\setbeamercolor{block title}{bg=black, fg=black} % Color of the block title.
-\setbeamercolor{block body}{bg=black, fg=black} % Color of the block body.
-\setbeamercolor{block title alerted}{bg=black, fg=black} % Color of the alerted block title.
-\setbeamercolor{block body alerted}{bg=black, fg=black} % Color of the alerted block body.
-\setbeamercolor{block title example}{bg=black, fg=black} % Color of the example block title.
-\setbeamercolor{block body example}{bg=black, fg=black} % Color of the example block body.
-\setbeamercolor{block title theorem}{bg=black, fg=black} % Color of the theorem block title.
-\setbeamercolor{block body theorem}{bg=black, fg=black} % Color of the theorem block body.
+\setbeamercolor{block title}{bg=blueBlock, fg=white} % Color of the block title.
+\setbeamercolor{block body}{bg=blueBlock!15, fg=black} % Color of the block body.
+\setbeamercolor{block title alerted}{bg=red!75!black, fg=white} % Color of the alerted block title.
+\setbeamercolor{block body alerted}{bg=red!15, fg=black} % Color of the alerted block body.
+\setbeamercolor{block title example}{bg=green!75!black, fg=white} % Color of the example block title.
+\setbeamercolor{block body example}{bg=green!75!black!10, fg=black} % Color of the example block body.
+\setbeamercolor{block title theorem}{bg=Gold!75!black, fg=white} % Color of the theorem block title.
+\setbeamercolor{block body theorem}{bg=Gold!75!black!10, fg=white} % Color of the theorem block body.
 
 % Itemize and Enumerate
 \setbeamercolor{item}{bg=black, fg=black} % Color of the itemize bullet points.

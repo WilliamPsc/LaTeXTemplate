@@ -15,170 +15,220 @@
 \DeclareOptionBeamer{rounded}{\beamer@secheadertrue}
 \ProcessOptionsBeamer
 
-
 \usecolortheme{William}
 % \useinnertheme[shadow]{rounded}
 \useinnertheme{rectangles}
 \useoutertheme{infolines}
-
-\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
 
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{frametitle continuation}{}
 \setbeamertemplate{caption}[numbered]
 \setbeamertemplate{headline}
 
+% New command
+\newcommand{\insertsupervisor}{}
+\newcommand{\supervisor}[1]{\def\insertsupervisor{#1}}
+
+% Bibliography
+\renewcommand*{\bibfont}{\footnotesize}
+\captionsetup{font=footnotesize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HEADLINE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\setbeamertemplate{frametitle}{%
+	\nointerlineskip
+	\begin{beamercolorbox}[sep=.3ex,wd=\paperwidth,leftskip=.5cm,rightskip=0cm]{headline}%
+		\usebeamerfont{frametitle}\insertframetitle\\[1pt]
+	\end{beamercolorbox}
+	\ifx\insertframesubtitle\@empty%
+	\else
+		\nointerlineskip%
+		\begin{beamercolorbox}[sep=.3ex,wd=\paperwidth,leftskip=.5cm,rightskip=0cm]{headline}%
+			\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle%
+		\end{beamercolorbox}
+	\fi
+}
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FOOTLINE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \setbeamertemplate{footline}
 {
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left]{footline}%
-    \usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
-  \end{beamercolorbox}
-  \hspace{.0171\textwidth}
-  \begin{beamercolorbox}[wd=.475\paperwidth,ht=2.5ex,dp=1ex,right]{footline}%
-    \usebeamercolor{date in head/foot}\manualshortsubtitle~--~
-    \usebeamerfont{date in head/foot}\insertdate{}\hspace*{2em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
-  \end{beamercolorbox}}%
-  \vskip0pt%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1ex,left]{footline}%
+			\usebeamerfont{author in head/foot}\insertshortauthor (\insertshortinstitute)
+		\end{beamercolorbox}
+		\hspace{.0171\textwidth}
+		\begin{beamercolorbox}[wd=.475\paperwidth,ht=2.5ex,dp=1ex,right]{footline}%
+			\usebeamercolor{date in head/foot}\manualshortsubtitle~--~
+			\usebeamerfont{date in head/foot}\insertdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+		\end{beamercolorbox}}%
+	\vskip0pt%
 }
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\setbeamertemplate{title page}{%
+	\vfill
+	\begingroup
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=false]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+			\vskip0.25em%
+			{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\fi%     
+	\end{beamercolorbox}%
+	\vskip1em\par
+	\begin{beamercolorbox}[sep=8pt,center]{author}
+		\usebeamerfont{author}\insertauthor
+		\ifx\insertsupervisor\@empty%
+		\else%
+			\vskip0.25em%
+			\small\insertsupervisor
+		\fi%
+	\end{beamercolorbox}%
+	\vspace{-.25cm}% NEW
+	\begin{beamercolorbox}[sep=8pt,center]{institute}
+		\usebeamerfont{institute}\footnotesize\insertinstitute
+	\end{beamercolorbox}
+	\vspace{-.5cm}% NEW
+	\begin{beamercolorbox}[sep=8pt,center]{date}
+		\usebeamerfont{date}\footnotesize\insertdate
+	\end{beamercolorbox}\vskip1em
 
-% \makeatletter
-% \setbeamercolor{frametitlecolor}{fg=bleuLabSTICC!75, bg=bleuLabSTICC!10}
-% \setbeamertemplate{frametitle}{%
-%   \nointerlineskip
-%   \begin{beamercolorbox}[sep=.3ex,wd=\paperwidth,leftskip=.5cm,rightskip=0cm]{frametitlecolor}%
-%     \usebeamerfont{frametitle}\insertframetitle\\[1pt]
-%   \end{beamercolorbox}
-%   \ifx\insertframesubtitle\@empty%
-%   \else
-%   \nointerlineskip%
-%   \begin{beamercolorbox}[sep=.3ex,wd=\paperwidth,leftskip=.5cm,rightskip=0cm]{frametitlecolor}%
-%   \usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle%
-%   \end{beamercolorbox}
-%   \fi
-% }
-% \makeatother
+	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+
+	\endgroup
+	\vfill
+}
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACK PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\setbeamertemplate{back page}{%
+	\vfill
+	\begingroup
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=false]{title}
+		\usebeamerfont{title}\inserttitle\par%
+		\ifx\insertsubtitle\@empty%
+		\else%
+			\vskip0.25em%
+			{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\fi%     
+	\end{beamercolorbox}%
+	\vskip1em\par
+	\begin{beamercolorbox}[sep=8pt,center]{author}
+		\usebeamerfont{author}\insertauthor
+		\ifx\insertsupervisor\@empty%
+		\else%
+			\vskip0.25em%
+			\footnotesize\insertsupervisor
+		\fi%
+	\end{beamercolorbox}%
+	\vspace{-.25cm}% NEW
+	\begin{beamercolorbox}[sep=8pt,center]{institute}
+		\usebeamerfont{institute}\footnotesize\insertinstitute
+	\end{beamercolorbox}\vskip.5em
+	
+	\LARGE \textcolor{writingColor!50}{Thank you for your attention.}\vskip1em
 
-% \makeatletter
-% \setbeamertemplate{title page}{%
-%     \vfill
-%     \begingroup
-%     \centering
-%     \begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=false]{title}
-%         \usebeamerfont{title}\inserttitle\par%
-%         \ifx\insertsubtitle\@empty%
-%         \else%
-%             \vskip0.25em%
-%             {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
-%         \fi%     
-%     \end{beamercolorbox}%
-%     \vskip1em\par
-%     \begin{beamercolorbox}[sep=8pt,center]{author}
-%         \usebeamerfont{author}\insertauthor
-%     \end{beamercolorbox}
-%     \vspace{-.25cm}% NEW
-%     \begin{beamercolorbox}[sep=8pt,center]{institute}
-%         \usebeamerfont{institute}\footnotesize\insertinstitute
-%     \end{beamercolorbox}
-%     \vspace{-.5cm}% NEW
-%     \begin{beamercolorbox}[sep=8pt,center]{date}
-%         \usebeamerfont{date}\footnotesize\insertdate
-%     \end{beamercolorbox}\vskip0.5em
+	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
 
-%     {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-    
-%     \endgroup
-%     \vfill
-% }
-% \makeatother
+	\endgroup
+	\vfill
+}
+\makeatother
 
-% \makeatletter
-% \setbeamertemplate{back page}{%
-%     \vfill
-%     \begingroup
-%     \centering
-%     \begin{beamercolorbox}[sep=8pt,center,rounded=true,shadow=false]{title}
-%         \usebeamerfont{title}\inserttitle\par%   
-%     \end{beamercolorbox}%
-%     \vskip1em\par
-%     \begin{beamercolorbox}[sep=8pt,center]{author}
-%         \usebeamerfont{author}\insertauthor
-%     \end{beamercolorbox}
-%     \vspace{-.25cm}% NEW
-%     \begin{beamercolorbox}[sep=8pt,center]{institute}
-%         \usebeamerfont{institute}\footnotesize\insertinstitute
-%         \LARGE \textcolor{bleuLabSTICC!50}{Thank you for your attention.}
-%     \end{beamercolorbox}
-%     \vskip0.5em
-%     \begin{columns}
-%         \begin{column}{.4\linewidth}
-%             \centering \scriptsize
-%             \begin{tabular}{@{}rl@{}}
-%                 % \toprule
-%                 \multicolumn{2}{c}{\textbf{Composition of the Jury}} \\ \midrule
-%                 President of the jury:  & Jean-Max DUTERTRE          \\
-%                 Reviewers:              & Lejla BATINA               \\
-%                                         & Vincent BEROULLE           \\
-%                                         & Nele MENTENS               \\
-%                 Examiners:              & Francesco REGAZZONI        \\
-%                 PhD supervisor:         & Guy GOGNIAT                \\
-%                 PhD co-director:        & Vianney LAP\^OTRE          %\\ \bottomrule
-%             \end{tabular}
-%         \end{column}
-%         \begin{column}{.6\linewidth}
-%             {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
-%         \end{column}
-%     \end{columns}
-    
-%     \endgroup
-%     \vfill
-% }
-% \makeatother
+% Define backpage command
+\newcommand{\backpage}{
+    \usebeamertemplate{back page}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate{section in toc}{sections numbered roman}{%
+  \leavevmode%
+  \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ \inserttocsection\par
+}
+\setbeamertemplate{section in toc}[sections numbered roman]
 
-% % Define backpage command
-% \newcommand{\backpage}{
-%     \usebeamertemplate{back page}
-% }
+\defbeamertemplate{subsection in toc}{subsections numbered alone}{%
+  \leavevmode%
+  \hspace{1em}\inserttocsubsectionnumber.\ \inserttocsubsection\par
+}
+\setbeamertemplate{subsection in toc}[subsections numbered alone]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginSection[]{
+  \begin{frame}{}
+    \vfill
+    \begin{center}
+        \Huge \tableofcontents[sectionstyle=show/hide, hideallsubsections]
+    \end{center}
+    \vfill
+  \end{frame}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FILIGRANE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\filigrane}[3]{\begin{tikzpicture}[remember picture,overlay]
+	\node [rotate=#2,scale=#3,text opacity=0.75]
+	at (current page.center) {\textcolor{red}{\textbf{#1}}};
+	\end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CUSTOM BLOCK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% theorem
+\BeforeBeginEnvironment{theorem}{
+  \setbeamercolor{block title}{fg=white,bg=Orange!80!black}
+  \setbeamercolor{block body}{fg=black,bg=Orange!30}
+}
+\AfterEndEnvironment{theorem}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
 
-% \renewcommand*{\bibfont}{\footnotesize}
-% \captionsetup{font=footnotesize}
+% proof
+\BeforeBeginEnvironment{proof}{
+  \setbeamercolor{block title}{fg=white,bg=VioletRed!80!black}
+  \setbeamercolor{block body}{fg=black, bg=VioletRed!30}
+}
+\AfterEndEnvironment{proof}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
 
-% \defbeamertemplate{section in toc}{sections numbered roman}{%
-%   \leavevmode%
-%   \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ \inserttocsection\par
-% }
-% \defbeamertemplate{subsection in toc}{subsections numbered alone}{%
-%   \leavevmode%
-%   \hspace{1em}\inserttocsubsectionnumber.\ \inserttocsubsection\par
-% }
+% corollary
+\BeforeBeginEnvironment{corollary}{
+  \setbeamercolor{block title}{fg=white,bg=Salmon!80!black}
+  \setbeamercolor{block body}{fg=black, bg=Salmon!30}
+}
+\AfterEndEnvironment{corollary}{
+    \setbeamercolor{block title}{fg=blocktitlefgsave,bg=blocktitlebgsave}
+    \setbeamercolor{block body}{fg=blockbodyfgsave,bg=blockbodybgsave}
+}
 
-% \setbeamertemplate{section in toc}[sections numbered roman]
-% \setbeamertemplate{subsection in toc}[subsections numbered alone]
+\usebeamercolor{block title}
+\colorlet{blocktitlefgsave}{block title.fg} 
+\colorlet{blocktitlebgsave}{block title.bg}
+\usebeamercolor{normal text}
+\usebeamercolor{block body}
+\colorlet{blockbodyfgsave}{block body.fg}
+\colorlet{blockbodybgsave}{block body.bg}   
+\usebeamercolor{normal text}
 
-% \AtBeginSection[]{
-%   \begin{frame}{}
-%     \vfill
-%     \begin{center}
-%         \Huge \tableofcontents[sectionstyle=show/hide, hideallsubsections]
-%     \end{center}
-%     \vfill
-%   \end{frame}
-% }
-
-% \newcommand{\filigrane}[3]{\begin{tikzpicture}[remember picture,overlay]
-% 	\node [rotate=#2,scale=#3,text opacity=0.75]
-% 	at (current page.center) {\textcolor{red}{\textbf{#1}}};
-% 	\end{tikzpicture}
-% }
-
-% \setbeamercovered{transparent}
+\usebeamercolor{block title example}
+\colorlet{exblocktitlefgsave}{block title example.fg}   
+\colorlet{exblocktitlebgsave}{block title example.bg}
+\usebeamercolor{normal text}
+\usebeamercolor{block body example}
+\colorlet{exblockbodyfgsave}{block body example.fg}
+\colorlet{exblockbodybgsave}{block body example.bg} 
+\usebeamercolor{normal text}
 
 \mode<all>
