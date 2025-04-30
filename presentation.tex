@@ -36,13 +36,13 @@
 \subtitle{\textsc{Subtitle}}
 \newcommand{\manualshortsubtitle}{Beamer presentation example - Saint-\'Etienne}
 \author[
-    Authors
+    William PENSEC
 ]{
-    \textbf{Authors}
+    \textbf{William PENSEC}
 }
-\institute[Short Institution] % (optional)
+\institute[UJM, UMR 5516 LabHC] % (optional)
 {
-    {\small Long Institution} \\ \vspace{2mm}
+    {\small Université Jean Monnet, UMR 5516 Laboratoire Hubert Curien} \\ \vspace{2mm}
 }
 \date{\today}
 
@@ -98,7 +98,7 @@
 
     \begin{alertblock}{AlertBlock}
         \begin{itemize}
-            \setbeamertemplate{itemize items}[sphere]
+            \setbeamertemplate{itemize items}[cercle]
             \item Item 1
             \item Item 2
         \end{itemize}
@@ -106,16 +106,20 @@
 \end{frame}
 %
 % ---------------------------------------------------------------- %
-\section{Section 2}
+\section{Mathematical boxes}
 \subsection{Subsection 1}
-\begin{frame}{Section 2 -- Subsection 1}
+\begin{frame}{Mathematical boxes -- Subsection 1}
     \begin{theorem}
-        Theorem 1
+        One is less than two, that is, $2>1$.
     \end{theorem}
 
     \begin{proof}
-        Proof 1
+        This is true, since $2=1+1$ and $1$ is positive.
     \end{proof}
+    
+    \begin{corollary}
+        I don’t know if this theorem deserves a corollary
+    \end{corollary}
 \end{frame}
 %
 % ---------------------------------------------------------------- %
@@ -125,8 +129,8 @@
 \end{frame}
 %
 % ---------------------------------------------------------------- %
-\section{Section 3}
-\begin{frame}[fragile]{Section 3}
+\section{Code}
+\begin{frame}[fragile]{Inline code}
 \centering
 \begin{minipage}[c]{\textwidth}
     \begin{lstlisting}[language=C,label=code:printfNFormat]
@@ -140,9 +144,9 @@ printf("%224u%n%35u%n%253u%n%n", 1, (int*) (a-4), 1, (int*) (a-3), 1, (int*) (a-
 \end{frame}
 %
 % ---------------------------------------------------------------- %
-\begin{frame}{}
-    \backpage
-\end{frame}
+% \begin{frame}{}
+%     \backpage
+% \end{frame}
 %
 % ---------------------------------------------------------------- %
 \end{document}
