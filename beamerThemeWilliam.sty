@@ -9,6 +9,39 @@
 
 \mode<presentation>
 
+% Package
+\RequirePackage{ae,lmodern}
+\RequirePackage[french]{babel}  % package pour langue française
+\RequirePackage[utf8]{inputenc} % compilation des mots accentués
+\RequirePackage[T1]{fontenc}      % césure correcte des mots accentués 
+\RequirePackage{eso-pic,rotating,graphicx} % insertion d'images et manipulation de la position
+\RequirePackage{xcolor}
+\RequirePackage[font=small]{caption}
+\RequirePackage{subcaption} % utilisation d'une légende intermédiaire dans le cas d'une image multiple
+\RequirePackage{url} % utilisation des liens url (utilisation dans le cas de la bibliographie par exemple
+\RequirePackage{tcolorbox,listings} % coloration du texte et possibilité d'inclure blocs de codes
+\RequirePackage{geometry} % customisation des layouts de page (marges, bordures, espacements)
+\RequirePackage{amssymb} % caractères mathématiques
+\RequirePackage{multirow, makecell} % tableau sur plusieurs colonnes fusionnées
+\RequirePackage{bibentry}
+\RequirePackage[backend=biber,style=numeric-comp, sorting=none, natbib=true]{biblatex} % exemples styles : https://fr.overleaf.com/learn/latex/Biblatex_bibliography_styles (mla pas mal)
+\RequirePackage{comment} % utilisation des commentaires de blocs
+\RequirePackage{ragged2e} % justification du texte dans les itemizes
+\RequirePackage{tikz} % création de schémas directement dans les slides
+\RequirePackage{csquotes} % pour enlever un warning avec biblatex
+\RequirePackage{fontawesome} %emoji
+\RequirePackage{marvosym}
+\RequirePackage[normalem]{ulem}
+\RequirePackage{booktabs}
+\RequirePackage{nth}
+\RequirePackage{siunitx}
+\usetikzlibrary{decorations.pathreplacing} % Load the required library
+
+% Font
+\DeclareFontShape{T1}{lmss}{m}{sc}{<->ssub * lmr/m/sc}{}
+\DeclareFontShape{T1}{lmss}{bx}{sc}{<->ssub * lmss/bx/n}{}
+
+% Beamer Option
 \newif\ifbeamer@secheader
 \beamer@secheaderfalse
 
@@ -64,7 +97,7 @@
 		\hspace{.0171\textwidth}
 		\begin{beamercolorbox}[wd=.475\paperwidth,ht=2.5ex,dp=1ex,right]{footline}%
 			\usebeamercolor{date in head/foot}\manualshortsubtitle~--~
-			\usebeamerfont{date in head/foot}\insertdate{}\hspace*{2em}
+			\usebeamerfont{date in head/foot}\insertdate{}\hspace*{1em}
 			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
 		\end{beamercolorbox}}%
 	\vskip0pt%
@@ -138,7 +171,7 @@
 		\usebeamerfont{institute}\footnotesize\insertinstitute
 	\end{beamercolorbox}\vskip.5em
 	
-	\LARGE \textcolor{writingColor!50}{Thank you for your attention.}\vskip1em
+	\LARGE \textcolor{writingColor!50}{Merci pour votre attention.}\vskip1em
 
 	{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
 
@@ -156,14 +189,18 @@
 \defbeamertemplate{section in toc}{sections numbered roman}{%
   \leavevmode%
   \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ \inserttocsection\par
+  \vspace{1em} % Add vertical space after each section
 }
 \setbeamertemplate{section in toc}[sections numbered roman]
 
 \defbeamertemplate{subsection in toc}{subsections numbered alone}{%
+  \vspace{-1em} % Add vertical space after each subsection
   \leavevmode%
   \hspace{1em}\inserttocsubsectionnumber.\ \inserttocsubsection\par
+  \vspace{1em} % Add vertical space after each subsection
 }
 \setbeamertemplate{subsection in toc}[subsections numbered alone]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \AtBeginSection[]{
   \begin{frame}{}
@@ -230,5 +267,11 @@
 \colorlet{exblockbodyfgsave}{block body example.fg}
 \colorlet{exblockbodybgsave}{block body example.bg} 
 \usebeamercolor{normal text}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ITEMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{itemize subsubitem}{\usebeamerfont*{itemize item}\raise1.25pt\hbox{\donotcoloroutermaths$\bullet$}}
+
 
 \mode<all>
