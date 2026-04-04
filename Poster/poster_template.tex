@@ -1,0 +1,167 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = fr_FR
+
+%Dokumentklasse, Spracheinstellung, Schriften
+\documentclass[a0paper,portrait]{baposter}
+\usepackage[utf8]{inputenc}
+\usepackage{arev}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{lmodern}
+
+
+%Mathe, Symbole, Einheitendarstellung, Chemie
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{eurosym}
+\usepackage{siunitx}
+\usepackage{fp}
+\usepackage[version=4]{mhchem}
+\usepackage{algorithm2e}
+
+%Typographie
+\usepackage[auto]{microtype}
+\usepackage{ragged2e}
+
+%Einbindung von Bildern, Tabellen, pdf-Seiten, Quellcode
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{paralist}
+
+\usepackage{subcaption}
+\captionsetup{font=footnotesize}
+\sisetup{
+    round-mode = places,
+    round-precision = 2,
+    group-separator = {,},
+    zero-decimal-to-integer = true
+}
+
+%Darstellung der Literaturangaben
+\usepackage[
+    backend=biber,
+    style=ieee,
+    citestyle=numeric-comp,
+    sorting=none,
+    maxbibnames=1
+]{biblatex}
+
+\bibliography{bibliography/refs.bib}
+\setlength\bibitemsep{2.5pt}
+
+%% Define color
+\definecolor[named]{LightGray}{RGB}{230,230,230}
+
+%Definition der Farben
+\definecolor{standardfontcolor}{RGB}{0,0,0} 
+\definecolor{bordercol}{RGB}{28,113,187}
+\definecolor{headercol1}{RGB}{255,255,255}
+\definecolor{headercol2}{RGB}{28,113,187}
+\definecolor{headerfontcol}{RGB}{0,0,0}
+\definecolor{boxcolor}{RGB}{255,255,255}
+
+\begin{document}
+\typeout{Poster rendering started}
+
+\background{
+    \begin{tikzpicture}[remember picture,overlay]%
+        \draw (current page.north west)+(-2em,2em) node[anchor=north west]
+            {\includegraphics[height=1.1\textheight]{figures/background}};
+    \end{tikzpicture}
+}
+
+\color{standardfontcolor}
+
+\begin{poster}{
+        grid=false,
+        columns=4,
+        %colspacing=length
+        headerheight=0.10\textheight,
+        eyecatcher=false,
+        borderColor=bordercol,
+        headerColorOne=headercol2!25,
+        headerColorTwo=headercol2,
+        headerFontColor=headerfontcol,
+        % Only simple background color used, no shading, so boxColorTwo isn't necessary
+        boxColorOne=boxcolor,
+        headershape=roundedright,
+        headerfont=\sffamily\bfseries\Large,
+        textborder=rectangle,
+        headerborder=open,
+        boxshade=plain,
+        background=none
+        %		background=user
+    }
+    %% Eye Cacther %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    {}
+    %----------------------------------------------------------------------------------------
+    %	TITLE AND AUTHOR NAME
+    %----------------------------------------------------------------------------------------
+    {
+        %Sans Serif
+        \vspace{0.2em}
+        \textsf
+        {\LARGE TITRE}
+    }
+    {
+        \sf\vspace{0.05em}
+        \Large William PENSEC\\
+        \normalsize{Polytech Montpellier et LIRMM, Université de Montpellier, France\\
+            william.pensec@umontpellier.fr}\\
+        
+    }
+    % University/lab logo
+    {
+        \begin{minipage}{0.3\textwidth}
+            \begin{tabular}{@{}c@{}}
+                \includegraphics[height=1cm]{img/logo/LogoLIRMMlong.jpg}
+                \hspace{10pt}
+                \includegraphics[height=1cm]{img/logo/logo_um_2022_rouge_CMJN.pdf}
+                \\
+                \includegraphics[height=1cm]{img/logo/Logo_polytech_montpellier.png}
+            \end{tabular}
+        \end{minipage}
+        \hfill
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \headerbox{ Introduction et contexte}{name=context,column=0,row=0,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \headerbox{ Objectifs pédagogiques et déroulement du projet}{name=objectifs,column=0,below=context,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \headerbox{ Approche pédagogique et encadrement}{name=approche,column=0,below=objectifs,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \headerbox{ \'Evaluation et livrables}{name=evaluation,column=0,below=approche,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \headerbox{ Bilan et retour d'expériences}{name=bilan,column=0,below=evaluation,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%% Perspectives %%%%%%%%%%%%%%%%%%%%
+    \headerbox{ Conclusion}{name=conclusion,column=0,below=bilan,span=4}{
+    }
+
+    %%%%%%%%%%%%%%%%%%%%%%% Logo %%%%%%%%%%%%%%%%%%%%%%%
+    \newcommand\heightLogo{1.25cm}
+    \newcommand\interSpace{2cm}
+    \begin{minipage}{1\textwidth}
+        \vspace{-10mm}
+        \begin{center}
+            \includegraphics[height=\heightLogo]{img/logo/LogoLIRMMlong.jpg}
+            \hspace{\interSpace}
+            \includegraphics[height=\heightLogo]{img/logo/logo_um_2022_rouge_CMJN.pdf}
+            \hspace{\interSpace}
+            \includegraphics[height=\heightLogo]{img/logo/Logo_polytech_montpellier.png}
+            % \hspace{\interSpace}
+            % \includegraphics[height=\heightLogo]{img/logo/Logos_CNFM.jpg}
+        \end{center}
+    \end{minipage}
+\end{poster}
+\end{document}

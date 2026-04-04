@@ -11,7 +11,7 @@
 
 % Package
 \RequirePackage{ae,lmodern}
-\RequirePackage[french]{babel}  % package pour langue française
+\RequirePackage[english]{babel}  % package pour langue française
 \RequirePackage[utf8]{inputenc} % compilation des mots accentués
 \RequirePackage[T1]{fontenc}      % césure correcte des mots accentués 
 \RequirePackage{eso-pic,rotating,graphicx} % insertion d'images et manipulation de la position
@@ -69,6 +69,15 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% HEADLINE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{headerLine1}{RGB}{94,94,94}
+\definecolor{headerLine2}{RGB}{237, 34, 52}
+\definecolor{headerLine3}{RGB}{56, 113, 192}
+\definecolor{headerLine4}{RGB}{236, 133, 25}
+\setbeamercolor{line1}{bg=headerLine1}
+\setbeamercolor{line2}{bg=headerLine2}
+\setbeamercolor{line3}{bg=headerLine3}
+\setbeamercolor{line4}{bg=headerLine4}
+
 \makeatletter
 \setbeamertemplate{frametitle}{%
 	\nointerlineskip
@@ -82,6 +91,16 @@
 			\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle%
 		\end{beamercolorbox}
 	\fi
+
+	% -------- ligne multicolore sous le header --------
+	\nointerlineskip
+	\hbox{%
+		\hskip-\beamer@leftmargin
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=0.4ex,dp=0ex]{line1}{}\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=0.4ex,dp=0ex]{line2}{}\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=0.4ex,dp=0ex]{line3}{}\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=0.4ex,dp=0ex]{line4}{}\end{beamercolorbox}%
+	}
 }
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -186,10 +205,12 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \defbeamertemplate{section in toc}{sections numbered roman}{%
   \leavevmode%
   \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ \inserttocsection\par
-  \vspace{1em} % Add vertical space after each section
+%   \vspace{.5em} % Add vertical space after each section
 }
 \setbeamertemplate{section in toc}[sections numbered roman]
 

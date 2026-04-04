@@ -1,0 +1,32 @@
+\usetheme[secheader]{William}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{frametitle continuation}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{headline}
+
+
+\hypersetup{
+  % hidelinks,
+  colorlinks=true,       % false: boxed links; true: colored links
+  linkcolor=blueBlock,          % color of internal links (change box color with linkbordercolor)
+  citecolor=red,        % color of links to bibliography
+  filecolor=black,         % color of file links
+  urlcolor=blueBlock,        % color of external links
+  pdfauthor = {William PENSEC},			                        % Auteurs
+  pdftitle = {TITLE},	% Titre du document
+  pdfsubject = {Présentation},		            % Sujet
+  pdfkeywords = {},  % Mots-clefs
+  pdfstartview={FitV}                                         % ajuste la page à la largueur de l'écran
+}
+
+\bibliography{bib/bibliographie.bib}
+\renewcommand*{\bibfont}{\footnotesize}
+
+% Define color
+\definecolor[named]{LightGray}{RGB}{230,230,230}
+
+% \setbeamercovered{transparent}
+
+\newcommand{\tableTwoLines}[2]{\begin{tabular}[c]{@{}c@{}}#1\\ #2\end{tabular}}
+\newcommand{\tableCentered}[1]{\begin{tabular}[c]{@{}c@{}}#1\end{tabular}}
+% \captionsetup{font=tiny}

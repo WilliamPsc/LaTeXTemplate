@@ -1,0 +1,43 @@
+\documentclass[svgnames, table, 10pt, aspectratio=169]{beamer} % aspectratio=1610, 149, 54, 43 et 32.]{beamer} 
+\setcounter{tocdepth}{2} % profondeur du sommaire (2 = sections, sous sections)
+\setcounter{secnumdepth}{1} % profondeur de la numérotation (1 : sections)
+\usepackage{multicol}
+\usepackage{pifont}
+
+\input{include/include.tex}
+\input{include/listings.tex}
+\input{include/titlepage.tex}
+
+
+\begin{document}
+\setbeamercovered{transparent} % Display all futur text but greysed
+% ---------------------------------------------------------------- %
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+% ---------------------------------------------------------------- %
+\begin{frame}{Outline}
+	\begin{columns}
+		\begin{column}{.125\linewidth}
+			\hfill
+		\end{column}
+		\begin{column}{.8\linewidth}
+			\Large\tableofcontents
+		\end{column}
+		\begin{column}{.1\linewidth}
+			\hfill
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+% ---------------------------------------------------------------- %
+\input{src/text}
+%
+% ---------------------------------------------------------------- %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+    \backpage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \input{bib/bibliographie.tex}
+\end{document}

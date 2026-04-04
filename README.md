@@ -1,2 +1,5 @@
-# BeamerTemplate
-Provide a new Beamer template designed for my own preferences (inspired by Madrid theme)
+# LaTeXTemplate
+Provide new LaTeX templates designed for my own preferences
+- Beamer template inspired by Madrid theme - for LIRMM insitution
+- Letter - TBD
+- Poster
