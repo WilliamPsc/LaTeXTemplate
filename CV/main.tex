@@ -1,0 +1,344 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors
+% ------------
+% * ifokkema
+% * Bertbk
+% * Hespe
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% showframes,
+	% vline=2.2em,
+	maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+]{fortysecondscv}
+
+\usepackage{ae,lmodern}
+\usepackage[french]{babel}  % package pour langue française
+\usepackage{graphicx} % insertion d'images et manipulation de la position
+\usepackage{tikz} % création de schémas directement dans les slides
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e} % justification du texte dans les itemizes
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+%	\newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+    \usepackage[utf8]{inputenc} % compilation des mots accentués
+    \usepackage[T1]{fontenc}      % césure correcte des mots accentués 
+%	\usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb} % caractères mathématiques
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{William PENSEC}
+% job title/career
+\cvjobtitle{Postdoctorant en Informatique}
+
+%% optional information
+% profile picture
+% \cvprofilepic{pics/profile.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{26 octobre 1996}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{42000 Saint-Etienne}
+% phone number
+% \cvphone{+33 06.51.36.06.63}
+% personal website
+\cvsite{www.pensec.fr/}
+% email address
+\cvmail{william@pensec.fr}
+% driver license
+\cvcustomdata{\faCar}{Permis B - Véhiculé}
+% any other custom entry
+\cvcustomdata{\faMap}{Français}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	% social network accounts incl. proper hyperlinks
+	\profilesection{Réseaux}
+		\begin{icontable}{2.5em}{1em}
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/william-pensec-7464a217b/}
+				{LinkedIn}
+            \social{\aiGoogleScholar}
+                {https://scholar.google.com/citations?user=AJE3er8AAAAJ}
+                {Google Scholar}
+			\social{\faGithub}
+				{https://github.com/WilliamPsc/}
+				{WilliamPsc}
+            % \social{\faUniversity}
+            %     {https://labsticc.fr/fr/annuaire/pensec-william}
+            %     {Lab-STICC}
+		\end{icontable}
+
+	\profilesection{Langues}
+    	\pointskill{\flag{FR.png}}{Français}{5}
+    	\pointskill{\flag{GB.png}}{Anglais}{4}
+		\pointskill{\flag{IT.png}}{Italien}{2}
+		% \pointskill{\flag{ES.png}}{Espagnol}{2}
+
+	\profilesection{Informatique}
+		\pointskill{\faCode}{Développement logiciel}{3}[4]
+		\skill{}{C, Python, C++, Java, JavaScript, Android, Bash, PHP, Ada}%, Visual Basic}
+		\pointskill{\faCogs}{Développement matériel}{3}[4]
+		\skill{}{VHDL, System Verilog, Suite Vivado HLS, Questasim, Assembleur, RISC-V}
+		\pointskill{\faDatabase}{Gestion des données}{4}[4]
+		\skill{}{MySQL, JSON, XML}
+		\pointskill{\faLinux}{Systèmes d'exploitation}{4}[4]
+		\skill{}{Linux, Windows}
+		\pointskill{\faTerminal}{Microcontrôleurs}{3}[4]
+		\skill{}{Arduino, Raspberry Pi, ZedBoard}
+		\pointskill{\faTerminal}{Divers}{4}[4]
+		\skill{}{Latex, TikZ, Chip Whisperer}
+
+	\profilesection{Centres d'intérêt}
+		\pointskill{\faHome}{Sport}{1}[1]
+			\skill[1.8em]{}{Natation, vélo, activités nautiques, randonnées}
+		\pointskill{\faHome}{Loisirs}{1}[1]
+			\skill[1.8em]{}{Voyages, jeux vidéos, films, séries, musique, lecture}
+}
+
+
+% %-------------------------------------------------------------------------------
+% %                              SIDEBAR 2nd PAGE
+% %-------------------------------------------------------------------------------
+% \addtobacksidebar{
+% 	\profilesection{About Me}
+% 	\aboutme{
+% 		The giant panda is a terrestrial animal and primarily spends its life
+% 		roaming and feeding in the bamboo forests of the Qinling Mountains and in
+% 		the hilly province of Sichuan.
+% 	}
+
+% 	\profilesection{Diagrams}
+% 	\begin{sidebarminipage}
+% 		\chartlabel{Bubble}
+% 		\chartlabel{Diagrams}
+% 		\chartlabel{with}
+% 		\chartlabel{proper}
+% 		\chartlabel{overflow}
+% 		\chartlabel{protection}
+% 		\chartlabel{for}
+% 		\chartlabel{labels}
+% 	\end{sidebarminipage}
+
+% 	\begin{figure}\centering
+% 		\smartdiagram[bubble diagram]{
+% 			\textcolor{white}{\textbf{Being a}} \\
+% 			\textcolor{white}{\textbf{Panda}}, % center bubble
+% 			\textcolor{black!90}{Eating},
+% 			\textcolor{black!90}{Sleeping},
+% 			\textcolor{black!90}{Rolling},
+% 			\textcolor{black!90}{Playing},
+% 			\textcolor{black!90}{Chilling}
+% 		}
+% 	\end{figure}
+
+% 	\chartlabel{Wheel Chart}
+
+% 	\wheelchart{3.7em}{2em}{%
+% 	20/3em/maincolor!50/Chill,
+% 	15/3em/maincolor!15/Play,
+% 	30/4em/maincolor!40/Sleep,
+% 	20/3em/maincolor!20/Eat
+% 	}
+
+% 	\profilesection{Barskills}
+% 	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+% 	\barskill{\faImage}{Playing Chess}{30}
+% 	\barskill{\faMusic}{Playing the bamboo flute}{50}
+
+% 	\profilesection{Memberships}
+% 	\begin{memberships}
+% 		\membership[4em]{pics/logo.png}{PandaScience.net}
+% 		\membership[4em]{pics/logo.png}{Some longer text spanning over more than
+% 			only one line}
+% 	\end{memberships}
+% }
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Profil}
+\aboutme{
+    Actuellement, postdoctorant en Informatique, au Laboratoire Hubert Curien à Saint-Etienne, spécialisé en sécurité matérielle sur RISC-V. Je cherche un poste de Maitre de Conférence pour poursuivre ma carrière professionnelle et approfondir mes recherches dans l'objectif de m'ouvrir à de nouvelles applications de la sécurité matérielle.
+}
+
+\cvsection{Expériences professionnelles}
+\begin{cvtable}[2]
+        \cvitem{2024 (1 an)}{Postdoctorat en Informatique}{Laboratoire Hubert Curien - Saint-Etienne}{Évaluation de la sécurité des implémentations FPGA de réseaux neuronaux sur RISC-V}
+        \cvitem{2023 (5 mois)}{Mobilité Internationale}{ALaRI - Lugano, Suisse}{\'Etude et développement de contremesures pour la protection d'un système contre les attaques par injections de fautes (SystemVerilog).}
+        \cvitem{2021 (5 mois)}{Stage de fin d'études (M2)}{Lab-STICC}{Développement d'une coopération de drones dans un système hétérogène (C++, Java, TCP/IP, CNN embarqué).}
+        \cvitem{2020 (2 mois)}{Stage en Recherche (M1)}{Lab-STICC}{Simulation de drones avec capteurs (GPS et accéléromètre) dans un environnement ouvert (C++, CARES).}
+\end{cvtable}
+
+
+\cvsection{Formation}
+\begin{cvtable}[2]
+        \cvitem{2021 -- 2024}{Thèse de Doctorat (Lab-STICC)}{Université Bretagne Sud - Lorient}{Extension de la Protection des Processeurs Contre les Menaces Physiques et Logicielles par la Sécurisation du Mécanisme DIFT Contre les Attaques par Injections de Fautes - Label Européen}
+        \cvitem{2019 -- 2021}{Master Logiciel pour les Systèmes Embarqués}{Université de Bretagne Occidentale - Brest}{}
+        \cvitem{2015 -- 2019}{Licence en Informatique : Fondements et Applications}{Université de Bretagne Occidentale - Brest}{}
+        \cvitem{2014 -- 2015}{PACES}{Université de Bretagne Occidentale - Brest}{}
+        \cvitem{2014}{Baccalauréat S-SVT, spécialité ISN}{Lycée de Cornouaille - Quimper}{}
+\end{cvtable}
+
+\cvsection{Encadrements}
+\begin{cvtable}[2]
+        \cvitem{2022}{Encadrement d'un étudiant de M2 en projet}{Université Bretagne Sud}{Implémentation d'un processeur RISC-V sur une cible FPGA}
+        \cvitem{2022}{Encadrement d'un stagiaire de M1}{Université Bretagne Sud}{Attaque physique sur cible FPGA}
+        \cvitem{2021 -- 2024}{Cours effectués}{Université Bretagne Sud}{TD à hauteur de 136~heures entre la L1 (IUT) et M2.}
+        % \cvitem{2020 -- 2021}{Projet de recherche (M2)}{Université de Bretagne Occidentale}{Création d'un simulateur de drone en 3D à partir de OMNeT++ et INET (C++, XML)}
+        % \cvitem{2020}{Projet Robotique (M1)}{Université de Bretagne Occidentale}{Création d'un environnement pour le suivi d'un robot à distance (NodeJS, TCP/IP, OpenStreetMap)}
+\end{cvtable}
+
+\cvsection{Publications}
+\begin{cvtable}
+	\cvpubitem{Scripting the Unpredictable: Automate Fault Injection in CABA Simulation for Vulnerability Assessment}{W. PENSEC, V. LAPÔTRE and G. GOGNIAT}{DSD}{2024}
+	\cvpubitem{Defending the Citadel: Fault Injection Attacks against Dynamic Information Flow Tracking and Related Countermeasures}{W. PENSEC, F. REGAZZONI, V. LAPÔTRE and G. GOGNIAT}{ISVLSI}{2024}
+	\cvpubitem{\href{https://doi.org/10.1145/3628356.3630116}{Another Break in the Wall: Harnessing Fault Injection Attacks to Penetrate Software Fortresses}}{W. PENSEC, V. LAPÔTRE and G. GOGNIAT}{Sensors S\&P}{2023}
+	\cvpubitem{\href{https://ieeexplore.ieee.org/document/9836057}{Smart Anomaly Detection and Monitoring of Industry 4.0 by Drones}}{W. PENSEC, D. ESPES, C. DEZAN}{ICUAS}{2022}
+\end{cvtable}
+
+
+% \newpage
+% \makebacksidebar
+% % \newgeometry{
+% % 	top=\topbottommargin,
+% % 	bottom=\topbottommargin,
+% % 	right=\leftrightmargin,
+% % 	left=\leftrightmargin
+% % }
+
+% \cvsection{section}
+% \cvsubsection{Subsection}
+% \begin{cvtable}
+% 	\cvitem{<dates>}{<cv-item title>}{<location>}{<optional: description>}
+% \end{cvtable}
+
+% \cvsection{cvitem}
+% \cvsubsection{Multi-line with longer description}
+% \begin{cvtable}
+% 	\cvitem{date}{Description}{location}{Some longer and more detailed
+% 		description, that takes two lines of space instead of only one.}
+% 	\cvitem{date}{Description}{location}{Some longer and more detailed
+% 		description, that takes two lines of space instead of only one.}
+% 	\cvitem{date}{Description}{location}{Some longer and more detailed
+% 		description, that takes two lines of space instead of only one.}
+% \end{cvtable}
+
+% \cvsubsection{One-line without description}
+% \begin{cvtable}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+% 	\cvitem{Award}{One-line description}{Sponsor}{}
+% \end{cvtable}
+
+% \cvsection{cvitemshort}
+% \cvsubsection{One-line}
+% \begin{cvtable}
+% 	\cvitemshort{Key}{Some further description}
+% 	\cvitemshort{Key}{Some further description}
+% 	\cvitemshort{Key}{Some further description}
+% \end{cvtable}
+
+% \cvsubsection{Multi-line with longer description}
+% \begin{cvtable}
+% 	\cvitemshort{Key}{Some further description. Can fill even more than
+% 		only one single line while still keeping the correct indendation level.}
+% 	\cvitemshort{Key}{Some further description. Can fill even more than
+% 		only one single line while still keeping the correct indendation level.}
+% 	\cvitemshort{Key}{Some further description. Can fill even more than
+% 		only one single line while still keeping the correct indendation level.}
+% \end{cvtable}
+
+% \cvsection{cvpubitem}
+% \begin{cvtable}
+% 	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+% 	\cvpubitem{Publication title}{Authors}{Journal}{Year}
+% 	\cvpubitem{Publication title that is spanning over multiple lines and still
+% 		does not look too bad}{Authors}{Journal}{Year}
+% \end{cvtable}
+
+\cvsignature
+\clearpage
+
+\end{document}
