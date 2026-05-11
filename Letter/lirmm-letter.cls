@@ -1,28 +1,6 @@
-%%
-%% This is file `kth-letter.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% kthbrev.dtx  (with options: `classfile,english')
-%% 
-%% IMPORTANT NOTICE:
-%% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from kth-letter.cls.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file kthbrev.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
 \NeedsTeXFormat{LaTeX2e}[2000/01/01]
 \ProvidesClass{lirmm-letter}
-              [2026/04/02 v1 LIRMM letters]
+[2026/04/02 v1 LIRMM letters]
 \DeclareOption{a4paper}{}
 \DeclareOption{a5paper}{\OptionNotUsed}
 \DeclareOption{b5paper}{\OptionNotUsed}
@@ -72,16 +50,16 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[french]{babel}
 \RequirePackage{geometry}
-\RequirePackage{graphics}
+\RequirePackage{graphicx}
 \RequirePackage{ifpdf}
 \RequirePackage[T1]{url}
 \input{size1\@ptsize.clo}
 \if@twoside
-\geometry{a4paper,twoside,nohead,footskip=10mm,includefoot,
-          left=25mm,right=25mm,top=30mm,bottom=12mm}
+  \geometry{a4paper,twoside,nohead,footskip=10mm,includefoot,
+    left=25mm,right=25mm,top=30mm,bottom=12mm}
 \else
-\geometry{a4paper,nohead,footskip=10mm,includefoot,
-          left=25mm,right=25mm,top=30mm,bottom=12mm}
+  \geometry{a4paper,nohead,footskip=10mm,includefoot,
+    left=25mm,right=25mm,top=30mm,bottom=12mm}
 \fi
 \if@nadabrev@forcedcolor
 \else
@@ -110,40 +88,40 @@
 \def\ps@plain{%
   \let\@oddhead\@empty
   \def\@oddfoot{\if@nadabrev@foot
-    \fontencoding{T1}\fontfamily{cmss}\selectfont
-    \fontsize{7}{8.5}\selectfont
-    \parbox{\textwidth}{\offinterlineskip
-      \setlength{\lineskip}{4pt}
-      \setlength{\normallineskip}{4pt}
-      \begin{center}
-        \makebox[\textwidth]{\hfill
-          Université de Montpellier%
-          \hfill
-          \ifnum\@nameuse{@nadabrev@lastpage\the@nadabrev@letter}=1%
-          \else
+      \fontencoding{T1}\fontfamily{cmss}\selectfont
+      \fontsize{7}{8.5}\selectfont
+      \parbox{\textwidth}{\offinterlineskip
+        \setlength{\lineskip}{4pt}
+        \setlength{\normallineskip}{4pt}
+        \begin{center}
+          \makebox[\textwidth]{\hfill
+            Université de Montpellier%
+            \hfill
+            \ifnum\@nameuse{@nadabrev@lastpage\the@nadabrev@letter}=1%
+            \else
             \llap{\thepage
               \ifnum\@nameuse{@nadabrev@lastpage\the@nadabrev@letter}=0%
-                \G@refundefinedtrue
+              \G@refundefinedtrue
               \else
-                \space(\@nameuse{@nadabrev@lastpage\the@nadabrev@letter})%
+              \space(\@nameuse{@nadabrev@lastpage\the@nadabrev@letter})%
               \fi
             }%
-          \fi}\\
-        \makebox[0pt]{\rule{180mm}{0.4pt}}\\
-        \makebox[0pt]{\def\\{; }\strut
+            \fi}\\
+          \makebox[0pt]{\rule{180mm}{0.4pt}}\\
+          \makebox[0pt]{\def\\{; }\strut
           \textbf{Univ. Montpellier} -- \fromaddress.
           Tel :~\telephonenum.
           Fax :~\@nadabrev@fax.
           E-mail :~\@nadabrev@email}\\
-        \makebox[0pt]{\strut
-          \@nadabrev@accounts
-          \settowidth{\@tempdima}{\@nadabrev@accounts}%
-          \settowidth{\@tempdimb}{\@nadabrev@web}%
-          \ifdim\@tempdima>1pt\ifdim\@tempdimb>1pt\relax
-            \space
-          \fi\fi
-          \@nadabrev@web}
-      \end{center}}\fi}
+          \makebox[0pt]{\strut
+            \@nadabrev@accounts
+            \settowidth{\@tempdima}{\@nadabrev@accounts}%
+            \settowidth{\@tempdimb}{\@nadabrev@web}%
+            \ifdim\@tempdima>1pt\ifdim\@tempdimb>1pt\relax
+                \space
+              \fi\fi
+            \@nadabrev@web}
+        \end{center}}\fi}
   \let\@evenfoot\@oddfoot}
 \newcommand*{\name}[1]{\def\fromname{#1}}
 \newsavebox{\@nadabrev@signature}
@@ -159,7 +137,7 @@
       \\*[5\medskipamount]%
     \fi
     \begin{minipage}[t]{\@nadabrev@signaturewidth}
-      \begin{tabular}[t]{@{}l}}
+    \begin{tabular}[t]{@{}l}}
   \begin{lrbox}{\@nadabrev@signature}\normalfont
     \begin{minipage}{\textwidth}
       \begin{minipage}[t]{\@nadabrev@signaturewidth}
@@ -181,7 +159,7 @@
 \def\email{\urldef{\@nadabrev@email}\@nadabrev@url}
 \def\web{\urldef{\@nadabrev@web}\@nadabrev@url}
 \address[\@nadabrev@loc\\34000 Montpellier\\France]%
-        {\fromlocation\\34000 Montpellier\\France}
+{\fromlocation\\34000 Montpellier\\France}
 \location[LIRMM]{Montpellier}
 \telephone{+33 04.67.41.85.85}
 \telefax{+33 04.67.41.85.00}
@@ -190,18 +168,18 @@
 \email{william.pensec@umontpellier.fr}
 \web{https://www.lirmm.fr/}
 \InputIfFileExists{identite.cfg}
-    {\typeout{Loading site specific letter configuration file.}}{}
+{\typeout{Loading site specific letter configuration file.}}{}
 \AtBeginDocument{%
   \@ifpackageloaded{babel}{\let\datefrench=\datesymd}{}}
 \newcommand*{\returnaddress}{\fromname\\LIRMM -- \@nadabrev@return}
 \newcommand*{\makelabels}{%
   \AtBeginDocument{%
-     \let\@startlabels\startlabels
-     \let\@mlabel\mlabel
-     \if@filesw
-       \immediate\write\@mainaux{\string\@startlabels}\fi}%
+    \let\@startlabels\startlabels
+    \let\@mlabel\mlabel
+    \if@filesw
+      \immediate\write\@mainaux{\string\@startlabels}\fi}%
   \AtEndDocument{%
-     \if@filesw\immediate\write\@mainaux{\string\clearpage}\fi}}
+    \if@filesw\immediate\write\@mainaux{\string\clearpage}\fi}}
 \@onlypreamble\makelabels
 \newcounter{@nadabrev@letter}
 \def\@nadabrev@writelastpage{%
@@ -251,7 +229,7 @@
   \let\\\@nobreakcr
   \let\vspace\@nobreakvspace}
 \DeclareRobustCommand\@nobreakvspace
-   {\@ifstar\@nobreakvspacex\@nobreakvspacex}
+{\@ifstar\@nobreakvspacex\@nobreakvspacex}
 \def\@nobreakvspacex#1{%
   \ifvmode
     \nobreak\vskip #1\relax
@@ -264,20 +242,20 @@
   \interlinepenalty 200%
   \def\par{\@@par\penalty 200\relax}}
 \newcommand*{\@nadabrev@DIN}{%
-  \put(5,-105){\line(1,0){2}}
-  \put(5,-210){\line(1,0){2}}
-  \put(148,-5){\line(0,-1){2}}
-  \put( 20,-45){\line( 1,0){1}}  \put( 20,-45){\line(0,-1){1}}
-  \put(105,-45){\line(-1,0){1}}  \put(105,-45){\line(0,-1){1}}
-  \put( 20,-50){\line( 1,0){1}}
-  \put(105,-50){\line(-1,0){1}}
-  \put( 20,-90){\line( 1,0){1}}  \put( 20,-90){\line(0, 1){1}}
-  \put(105,-90){\line(-1,0){1}}  \put(105,-90){\line(0, 1){1}}
-  \put( 25,-50){\makebox(0,5)[l]{\tiny
-      \parbox{105mm}{\def\\{; }\noindent
-        \fromname\\KTH -- \@nadabrev@return}}}
-  \put( 25,-90){\makebox(0,40)[l]{%
-      \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
+\put(5,-105){\line(1,0){2}}
+\put(5,-210){\line(1,0){2}}
+\put(148,-5){\line(0,-1){2}}
+\put( 20,-45){\line( 1,0){1}}  \put( 20,-45){\line(0,-1){1}}
+\put(105,-45){\line(-1,0){1}}  \put(105,-45){\line(0,-1){1}}
+\put( 20,-50){\line( 1,0){1}}
+\put(105,-50){\line(-1,0){1}}
+\put( 20,-90){\line( 1,0){1}}  \put( 20,-90){\line(0, 1){1}}
+\put(105,-90){\line(-1,0){1}}  \put(105,-90){\line(0, 1){1}}
+\put( 25,-50){\makebox(0,5)[l]{\tiny
+\parbox{105mm}{\def\\{; }\noindent
+\fromname\\KTH -- \@nadabrev@return}}}
+\put( 25,-90){\makebox(0,40)[l]{%
+    \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
 \newcommand*{\@nadabrev@KTH}{%
   \put(5,-105){\line(1,0){2}}
   \put(5,-210){\line(1,0){2}}
@@ -288,13 +266,22 @@
   \put(5,-210){\line(1,0){2}}
   \put(120,-64){\makebox(0,22)[l]{%
       \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
+
+
 \newcommand*{\opening}[1]{%
   \centerline{%
     \setlength{\unitlength}{1mm}
     \begin{picture}(0,55)(105,-85)
       \if@nadabrev@head
-        \put(105,-7){\makebox(0,0)[t]{%
-            \scalebox{1}{\includegraphics{\@nadabrev@logo}}}}
+        \put(105,-7){%
+          \makebox(0,0)[t]{%
+            \includegraphics[width=0.3\textwidth]{img/logo_um.pdf}%
+            \hspace{1cm}%
+            \includegraphics[width=0.3\textwidth]{img/logo_polytech.png}%
+            \hspace{1cm}%
+            \includegraphics[width=0.3\textwidth]{img/logo_lirmm.jpg}%
+          }%
+        }%
       \fi
       \@nameuse{@nadabrev@\@nadabrev@layout}
       \put(120,-80){\makebox(0,0)[lb]{%
@@ -352,7 +339,7 @@
 \let\@startlabels=\relax
 \newcommand*{\mlabel}[2]{%
   \parbox[b][2in][c]{262\p@}{\strut\ignorespaces #2}%
-  }
+}
 \let\@mlabel=\@gobbletwo
 \setlength\leftmargini   {2.5em}
 \setlength\leftmarginii  {2.2em}
@@ -369,28 +356,28 @@
 \@endparpenalty   -\@lowpenalty
 \@itempenalty     -\@lowpenalty
 \def\@listI{\setlength\leftmargin{\leftmargini}%
-            \setlength\parsep {0\p@}%
-            \setlength\topsep {.4em}%
-            \setlength\itemsep{.4em}}
+  \setlength\parsep {0\p@}%
+  \setlength\topsep {.4em}%
+  \setlength\itemsep{.4em}}
 \let\@listi\@listI
 \@listi
 \def\@listii {\setlength  \leftmargin{\leftmarginii}%
-              \setlength  \labelwidth{\leftmarginii}%
-              \addtolength\labelwidth{-\labelsep}}
+  \setlength  \labelwidth{\leftmarginii}%
+  \addtolength\labelwidth{-\labelsep}}
 \def\@listiii{\setlength  \leftmargin{\leftmarginiii}%
-              \setlength  \labelwidth{\leftmarginiii}%
-              \addtolength\labelwidth{-\labelsep}%
-              \setlength  \topsep    {.2em}%
-              \setlength  \itemsep   {\topsep}}
+  \setlength  \labelwidth{\leftmarginiii}%
+  \addtolength\labelwidth{-\labelsep}%
+  \setlength  \topsep    {.2em}%
+  \setlength  \itemsep   {\topsep}}
 \def\@listiv {\setlength  \leftmargin{\leftmarginiv}%
-              \setlength  \labelwidth{\leftmarginiv}%
-              \addtolength\labelwidth{-\labelsep}}
+  \setlength  \labelwidth{\leftmarginiv}%
+  \addtolength\labelwidth{-\labelsep}}
 \def\@listv  {\setlength  \leftmargin{\leftmarginv}%
-              \setlength  \labelwidth{\leftmarginv}%
-              \addtolength\labelwidth{-\labelsep}}
+  \setlength  \labelwidth{\leftmarginv}%
+  \addtolength\labelwidth{-\labelsep}}
 \def\@listvi {\setlength  \leftmargin{\leftmarginvi}%
-              \setlength  \labelwidth{\leftmarginvi}%
-              \addtolength\labelwidth{-\labelsep}}
+  \setlength  \labelwidth{\leftmarginvi}%
+  \addtolength\labelwidth{-\labelsep}}
 \renewcommand\theenumi{\@arabic\c@enumi}
 \renewcommand\theenumii{\@alph\c@enumii}
 \renewcommand\theenumiii{\@roman\c@enumiii}
@@ -407,30 +394,30 @@
 \newcommand\labelitemiii{\textasteriskcentered}
 \newcommand\labelitemiv{\textperiodcentered}
 \newenvironment{description}
-               {\list{}{\labelwidth\z@ \itemindent-\leftmargin
-                        \let\makelabel\descriptionlabel}}
-               {\endlist}
+{\list{}{\labelwidth\z@ \itemindent-\leftmargin
+    \let\makelabel\descriptionlabel}}
+{\endlist}
 \newcommand*{\descriptionlabel}[1]{\hspace\labelsep
-                                \normalfont\bfseries #1}
+  \normalfont\bfseries #1}
 \newenvironment{verse}
-               {\let\\=\@centercr
-                \list{}{\setlength\itemsep{\z@}%
-                        \setlength\itemindent{-15\p@}%
-                        \setlength\listparindent{\itemindent}%
-                        \setlength\rightmargin{\leftmargin}%
-                        \addtolength\leftmargin{15\p@}}%
-                \item[]}
-               {\endlist}
+{\let\\=\@centercr
+  \list{}{\setlength\itemsep{\z@}%
+    \setlength\itemindent{-15\p@}%
+    \setlength\listparindent{\itemindent}%
+    \setlength\rightmargin{\leftmargin}%
+    \addtolength\leftmargin{15\p@}}%
+  \item[]}
+{\endlist}
 \newenvironment{quotation}
-               {\list{}{\setlength\listparindent{1.5em}%
-                        \setlength\itemindent{\listparindent}%
-                        \setlength\rightmargin{\leftmargin}}%
-                \item[]}
-               {\endlist}
+{\list{}{\setlength\listparindent{1.5em}%
+    \setlength\itemindent{\listparindent}%
+    \setlength\rightmargin{\leftmargin}}%
+  \item[]}
+{\endlist}
 \newenvironment{quote}
-               {\list{}{\setlength\rightmargin{\leftmargin}}%
-                \item[]}
-               {\endlist}
+{\list{}{\setlength\rightmargin{\leftmargin}}%
+  \item[]}
+{\endlist}
 \setlength\arraycolsep{5\p@}
 \setlength\tabcolsep{6\p@}
 \setlength\arrayrulewidth{.4\p@}
@@ -454,16 +441,16 @@
   \hrule \@width .4\columnwidth
   \kern .6\p@}
 \long\def\@makefntext#1{%
-    \noindent
-    \hangindent 5\p@
-    \hb@xt@5\p@{\hss\@makefnmark}#1}
+  \noindent
+  \hangindent 5\p@
+  \hb@xt@5\p@{\hss\@makefnmark}#1}
 \newcommand*{\ccname}{cc}
 \newcommand*{\enclname}{encl}
 \newcommand*{\pagename}{Page}
 \newcommand*{\headtoname}{To}
 \newcommand*{\today}{\ifcase\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
+    January\or February\or March\or April\or May\or June\or
+    July\or August\or September\or October\or November\or December\fi
   \space\number\day, \number\year}
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
