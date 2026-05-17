@@ -267,8 +267,7 @@
   \put(120,-64){\makebox(0,22)[l]{%
       \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
 
-
-\newcommand*{\opening}[1]{%
+\newcommand*{\opening}[2]{%
   \centerline{%
     \setlength{\unitlength}{1mm}
     \begin{picture}(0,55)(105,-85)
@@ -288,9 +287,11 @@
           \begin{tabular}{@{}l}\@nadabrev@dnr\end{tabular}}}
       \put(120,-85){\makebox(0,0)[lt]{%
           \begin{tabular}{@{}l}\@date\end{tabular}}}
-    \end{picture}}
-  \vspace*{5mm}
-  #1\par\nobreak}
+    \end{picture}
+  }
+  \vspace{5mm}
+  \textbf{Objet :} #1\\[1cm]
+  #2\par\nobreak}
 \newcommand{\closing}[1]{\par\nobreak\vspace{\parskip}%
   \stopbreaks
   \noindent #1\\[2\medskipamount]%
