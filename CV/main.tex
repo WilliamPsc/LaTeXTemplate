@@ -27,7 +27,7 @@
 	a4paper,
 	% showframes,
 	% vline=2.2em,
-	maincolor=cvgreen,
+	maincolor=cvblue,
 	% sidecolor=gray!50,
 	% sectioncolor=red,
 	% subsectioncolor=orange,
@@ -97,7 +97,7 @@
 % your name
 \cvname{William PENSEC}
 % job title/career
-\cvjobtitle{Postdoctorant en Informatique}
+\cvjobtitle{Maître de Conférences}
 
 %% optional information
 % profile picture
@@ -107,15 +107,16 @@
 % date of birth
 \cvbirthday{26 octobre 1996}
 % short address/location, use \newline if more than 1 line is required
-\cvaddress{42000 Saint-Etienne}
+\cvaddress{34000 Montpellier}
 % phone number
 % \cvphone{+33 06.51.36.06.63}
 % personal website
 \cvsite{www.pensec.fr/}
 % email address
 \cvmail{william@pensec.fr}
+\cvmail{william.pensec@lirmm.fr}
 % driver license
-\cvcustomdata{\faCar}{Permis B - Véhiculé}
+\cvcustomdata{\faCar}{Permis B}
 % any other custom entry
 \cvcustomdata{\faMap}{Français}
 
@@ -140,36 +141,32 @@
 			\social{\faGithub}
 				{https://github.com/WilliamPsc/}
 				{WilliamPsc}
-            % \social{\faUniversity}
-            %     {https://labsticc.fr/fr/annuaire/pensec-william}
-            %     {Lab-STICC}
 		\end{icontable}
 
 	\profilesection{Langues}
     	\pointskill{\flag{FR.png}}{Français}{5}
     	\pointskill{\flag{GB.png}}{Anglais}{4}
 		\pointskill{\flag{IT.png}}{Italien}{2}
-		% \pointskill{\flag{ES.png}}{Espagnol}{2}
 
 	\profilesection{Informatique}
 		\pointskill{\faCode}{Développement logiciel}{3}[4]
-		\skill{}{C, Python, C++, Java, JavaScript, Android, Bash, PHP, Ada}%, Visual Basic}
+		\skill[.8em]{}{C, Python, C++, Java, JavaScript, Android, Bash, PHP, Ada, Visual Basic}
 		\pointskill{\faCogs}{Développement matériel}{3}[4]
-		\skill{}{VHDL, System Verilog, Suite Vivado HLS, Questasim, Assembleur, RISC-V}
+		\skill[.8em]{}{System Verilog, Assembleur, \mbox{RISC-V}}
 		\pointskill{\faDatabase}{Gestion des données}{4}[4]
-		\skill{}{MySQL, JSON, XML}
+		\skill[.8em]{}{MySQL, JSON, XML}
 		\pointskill{\faLinux}{Systèmes d'exploitation}{4}[4]
-		\skill{}{Linux, Windows}
-		\pointskill{\faTerminal}{Microcontrôleurs}{3}[4]
-		\skill{}{Arduino, Raspberry Pi, ZedBoard}
+		\skill[.8em]{}{Linux, Windows}
+		\pointskill{\faMicrochip}{Microcontrôleurs}{3}[4]
+		\skill[.8em]{}{Arduino, Raspberry Pi, STM32, FPGA}
 		\pointskill{\faTerminal}{Divers}{4}[4]
-		\skill{}{Latex, TikZ, Chip Whisperer}
+		\skill[.8em]{}{Latex, TikZ, Git, Keras}
 
 	\profilesection{Centres d'intérêt}
-		\pointskill{\faHome}{Sport}{1}[1]
-			\skill[1.8em]{}{Natation, vélo, activités nautiques, randonnées}
-		\pointskill{\faHome}{Loisirs}{1}[1]
-			\skill[1.8em]{}{Voyages, jeux vidéos, films, séries, musique, lecture}
+		\pointskill{\faSwimmer}{Sport}{1}[1]
+			\skill[.8em]{}{Natation, vélo, activités nautiques, randonnées}
+		\pointskill{\faSteam}{Loisirs}{1}[1]
+			\skill[.8em]{}{Voyages, jeux vidéos, films, séries, musique, lecture}
 }
 
 
@@ -240,15 +237,15 @@
 
 \cvsection{Profil}
 \aboutme{
-    Actuellement, postdoctorant en Informatique, au Laboratoire Hubert Curien à Saint-Etienne, spécialisé en sécurité matérielle sur RISC-V. Je cherche un poste de Maitre de Conférence pour poursuivre ma carrière professionnelle et approfondir mes recherches dans l'objectif de m'ouvrir à de nouvelles applications de la sécurité matérielle.
+    Actuellement, maître de conférences en Génie Informatique, au LIRMM à Montpellier, spécialisé en architecture des ordinateurs, en sécurité matérielle et injections de fautes sur les systèmes embarqués (sur RISC-V).
 }
 
 \cvsection{Expériences professionnelles}
 \begin{cvtable}[2]
+        \cvitem{2025 -}{Maître de Conférences}{LIRMM - Univ. Montpellier}{Membre de l'équipe ADAC - département de Microélectronique}
         \cvitem{2024 (1 an)}{Postdoctorat en Informatique}{Laboratoire Hubert Curien - Saint-Etienne}{Évaluation de la sécurité des implémentations FPGA de réseaux neuronaux sur RISC-V}
         \cvitem{2023 (5 mois)}{Mobilité Internationale}{ALaRI - Lugano, Suisse}{\'Etude et développement de contremesures pour la protection d'un système contre les attaques par injections de fautes (SystemVerilog).}
         \cvitem{2021 (5 mois)}{Stage de fin d'études (M2)}{Lab-STICC}{Développement d'une coopération de drones dans un système hétérogène (C++, Java, TCP/IP, CNN embarqué).}
-        \cvitem{2020 (2 mois)}{Stage en Recherche (M1)}{Lab-STICC}{Simulation de drones avec capteurs (GPS et accéléromètre) dans un environnement ouvert (C++, CARES).}
 \end{cvtable}
 
 
@@ -261,22 +258,26 @@
         \cvitem{2014}{Baccalauréat S-SVT, spécialité ISN}{Lycée de Cornouaille - Quimper}{}
 \end{cvtable}
 
-\cvsection{Encadrements}
-\begin{cvtable}[2]
-        \cvitem{2022}{Encadrement d'un étudiant de M2 en projet}{Université Bretagne Sud}{Implémentation d'un processeur RISC-V sur une cible FPGA}
-        \cvitem{2022}{Encadrement d'un stagiaire de M1}{Université Bretagne Sud}{Attaque physique sur cible FPGA}
-        \cvitem{2021 -- 2024}{Cours effectués}{Université Bretagne Sud}{TD à hauteur de 136~heures entre la L1 (IUT) et M2.}
-        % \cvitem{2020 -- 2021}{Projet de recherche (M2)}{Université de Bretagne Occidentale}{Création d'un simulateur de drone en 3D à partir de OMNeT++ et INET (C++, XML)}
-        % \cvitem{2020}{Projet Robotique (M1)}{Université de Bretagne Occidentale}{Création d'un environnement pour le suivi d'un robot à distance (NodeJS, TCP/IP, OpenStreetMap)}
-\end{cvtable}
-
 \cvsection{Publications}
 \begin{cvtable}
-	\cvpubitem{Scripting the Unpredictable: Automate Fault Injection in CABA Simulation for Vulnerability Assessment}{W. PENSEC, V. LAPÔTRE and G. GOGNIAT}{DSD}{2024}
-	\cvpubitem{Defending the Citadel: Fault Injection Attacks against Dynamic Information Flow Tracking and Related Countermeasures}{W. PENSEC, F. REGAZZONI, V. LAPÔTRE and G. GOGNIAT}{ISVLSI}{2024}
-	\cvpubitem{\href{https://doi.org/10.1145/3628356.3630116}{Another Break in the Wall: Harnessing Fault Injection Attacks to Penetrate Software Fortresses}}{W. PENSEC, V. LAPÔTRE and G. GOGNIAT}{Sensors S\&P}{2023}
-	\cvpubitem{\href{https://ieeexplore.ieee.org/document/9836057}{Smart Anomaly Detection and Monitoring of Industry 4.0 by Drones}}{W. PENSEC, D. ESPES, C. DEZAN}{ICUAS}{2022}
+	\cvpubitem{Scripting the Unpredictable: Automate Fault Injection in CABA Simulation for Vulnerability Assessment}{W. Pensec, V. Lapôtre and G. Gogniat}{DSD}{2024}
+	\cvpubitem{Exploring Fault Injection Attacks on CVA6 PMP Configuration Flow}{K. Quénéhervé, W. Pensec, P. Tanguy, R. Dafali et V. Lapôtre}{DSD}{2024}
+	\cvpubitem{Defending the Citadel: Fault Injection Attacks against Dynamic Information Flow Tracking and Related Countermeasures}{W. Pensec, F. Regazzoni, V. Lapôtre and G. Gogniat}{ISVLSI}{2024}
+	\cvpubitem{\href{https://doi.org/10.1145/3628356.3630116}{Another Break in the Wall: Harnessing Fault Injection Attacks to Penetrate Software Fortresses}}{W. Pensec, V. Lapôtre and G. Gogniat}{Sensors S\&P}{2023}
+	\cvpubitem{\href{https://ieeexplore.ieee.org/document/9836057}{Smart Anomaly Detection and Monitoring of Industry 4.0 by Drones}}{W. Pensec, D. Espès, C. Dezan}{ICUAS}{2022}
 \end{cvtable}
+
+\cvsection{Encadrements}
+\begin{cvtable}[2]
+        \cvitem{2025 --}{Co-encadrement d'un doctorant : Ali Ait Hassou -- Projet ANR SCREAM}{Université de Montpellier}{}
+        \cvitem{2026}{Encadrement d'un étudiant de M1 en stage}{Université de Montpellier}{Implémentation d’un mécanisme automatique de classification des données selon leur contexte de manipulation}
+        \cvitem{2022}{Encadrement d'un étudiant de M2 en projet}{Université Bretagne Sud}{Implémentation d'un processeur RISC-V sur une cible FPGA}
+\end{cvtable}
+
+% \cvsection{Recherche}
+% \begin{cvtable}[2]
+%         \cvitem{Comité de programme}{}{}{}
+% \end{cvtable}
 
 
 % \newpage

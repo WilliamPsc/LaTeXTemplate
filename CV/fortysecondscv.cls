@@ -26,8 +26,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fortysecondscv}[2020/02/09 CV class]
 
-
-
 %-------------------------------------------------------------------------------
 %                            PROCESS CLASS OPTIONS
 %-------------------------------------------------------------------------------
@@ -198,7 +196,6 @@
 
 % enable links
 \RequirePackage[hidelinks]{hyperref}
-
 
 
 %-------------------------------------------------------------------------------
@@ -667,9 +664,9 @@
 % |                <italic author>                   |
 % |                <journal>                         |
 \newcommand{\cvpubitem}[4]{%
-	\parbox[t]{0.17\textwidth}{\raggedright #4} &
+	\parbox[t]{0.15\textwidth}{\raggedright #4} &
 	\parbox[t]{0.81\textwidth}{%
-		\textbf{#1} \par \textit{#2} \par #3 \vspace{\parsep}%
+		\textbf{#1}~-- \textit{#2}~-- #3 \vspace{\parsep}%
 	}\\
 }
 
